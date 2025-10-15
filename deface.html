@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AUTHORIZED SECURITY TEST — PoC</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #111827, #0f172a);
+      color: #e6eef8;
+      text-align: center;
+      padding: 2rem;
+    }
+    .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 2rem;
+      border-radius: 12px;
+      width: min(880px, 94%);
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+    }
+    h1 { margin: 0 0 0.25rem 0; font-size: 1.8rem; letter-spacing: -0.5px; }
+    p.lead { margin: 0.25rem 0 1rem 0; opacity: 0.9; }
+    .meta { font-size: 0.9rem; opacity: 0.75; margin-bottom: 1rem; }
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(255,69,96,0.12);
+      color: #ff7b8a;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+    pre { text-align: left; background: rgba(0,0,0,0.25); padding: 0.75rem; border-radius: 8px; overflow:auto; }
+    footer { margin-top: 1rem; font-size: 0.85rem; opacity: 0.8; }
+  </style>
+</head>
+<body>
+  <div class="card" role="main" aria-labelledby="title">
+    <div class="badge">AUTHORIZED SECURITY TEST</div>
+    <h1 id="title">Proof-of-Concept Demo Page</h1>
+    <p class="lead">This page is a harmless PoC for use in a lab or with written authorization only. Do NOT deploy to production systems.</p>
+
+    <div class="meta" id="meta">
+      Generated: <span id="ts">—</span> · Host: <span id="host">local</span>
+    </div>
+
+    <p>If you are documenting a vulnerability or preparing a responsible disclosure report, include screenshots of this page alongside reproduction steps and the exact affected URL(s).</p>
+
+    <pre id="sample">{
+  "note": "This is a safe, local proof-of-concept. Use only on authorized systems.",
+  "actions": [
+    "Take screenshots",
+    "Include timestamp",
+    "Follow responsible disclosure"
+  ]
+}</pre>
+
+    <footer>Tips: test on OWASP Juice Shop / DVWA or a dedicated lab VM. Do not deface or modify systems you do not own or have permission to test.</footer>
+  </div>
+
+  <script>
+    // harmless dynamic bits for demo / timestamps
+    document.getElementById('ts').textContent = new Date().toLocaleString();
+    try {
+      document.getElementById('host').textContent = location.hostname || 'local';
+    } catch(e) {
+      document.getElementById('host').textContent = 'local';
+    }
+  </script>
+</body>
+</html>
